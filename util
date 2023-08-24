@@ -1,0 +1,19 @@
+#How to create a virtual environment:
+
+# Navigate to your project directory
+cd c:/Users/Usuario/.vscode/serviços cloud
+
+# Create a virtual environment
+py -3.10 -m venv venv
+
+# Activate the virtual environment
+.\venv\Scripts\activate
+
+# Install 'boto3' in the virtual environment
+pip install boto3
+
+# Run your script
+python s3_ada.py
+
+# Don't forget to deactivate the virtual environment when done
+deactivate
