@@ -1,4 +1,4 @@
-from s3_ada import create_s3, list_s3, upload_file_s3, list_obj
+from s3_ada import create_s3, list_s3, upload_file_s3
 from sqs import send_message
 from receiver import consume_queue
 
@@ -7,7 +7,6 @@ def main():
     create_s3()
     upload_file_s3()
     list_s3()
-    list_obj()
     send_message()
     consume_queue()
     print("Obrigado(a) por utilizar o Controle AWS da Núclea! Volte sempre! :D")

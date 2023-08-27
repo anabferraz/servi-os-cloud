@@ -6,18 +6,14 @@ def list_s3():
     print("Listing my buckets:")
     for bucket in s3_resource.buckets.all():
         print(f"\t{bucket.name}")
-
-def list_obj():
-    s3_resourc = boto3.resource('s3')
-    print("Listing my objects: ")
-    for obj in s3_resourc.Object.all():
-        print(f"\tObject: {obj.key}")
+        for obj in bucket.objects.all():
+            print(f"\tObject: {obj.key}")
 
 def create_s3():
     s3_client = boto3.client('s3')
     date = str(datetime.now().date())
     date_rel = date.replace('-','.')
-    bucket_name = "relatorio_"+ date_rel
+    bucket_name = "relatorio-"+ date_rel
     try:
         s3_client.create_bucket(Bucket=bucket_name)
         print(f"Bucket '{bucket_name}' criado com sucesso!")
@@ -29,8 +25,8 @@ def upload_file_s3():
     data = str(datetime.now().date())
     data_rel = data.replace('-','.')
     file_path = fr"C:\Users\Usuario\Desktop\Relatorio {data_rel}.docx"
-    object_name = f"Relatorio_{data_rel}.docx"
-    bucket_name = f"relatorio_{data_rel}"
+    object_name = f"Relatorio-{data_rel}.docx"
+    bucket_name = f"relatorio-{data_rel}"
     
     try:
         s3_client.upload_file(file_path, bucket_name , object_name)
@@ -41,6 +37,5 @@ def upload_file_s3():
 if __name__ == '__main__':
     
     list_s3()
-    list_obj()
     create_s3()
     upload_file_s3()
