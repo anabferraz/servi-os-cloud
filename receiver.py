@@ -10,7 +10,7 @@ def consume_queue():
     
     for message in response.get('Messages', []):
         body = message.get('Body', 'No body')
-        print(body)
+        print("Mensagem recebida: "+body)
 
 if __name__ == '__main__':
 

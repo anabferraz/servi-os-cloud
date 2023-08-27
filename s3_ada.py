@@ -8,7 +8,7 @@ def list_s3():
         print(f"\t{bucket.name}")
 
 def create_s3():
-    s3_client = boto3.client('s3', region_name='us-east-2')
+    s3_client = boto3.client('s3')
     date = str(datetime.now().date())
     date_rel = date.replace('-','.')
     bucket_name = "relatorio_"+ date_rel
@@ -19,7 +19,7 @@ def create_s3():
         print("Error:", e)
 
 def upload_file_s3():
-    s3_client = boto3.client('s3', region_name='us-east-2')
+    s3_client = boto3.client('s3')
     data = str(datetime.now().date())
     data_rel = data.replace('-','.')
     file_path = fr"C:\Users\Usuario\Desktop\Relatorio {data_rel}.docx"
