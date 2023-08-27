@@ -10,7 +10,7 @@ def list_s3():
 def list_obj():
     s3_resourc = boto3.resource('s3')
     print("Listing my objects: ")
-    for obj in s3_resourc.objects.all():
+    for obj in s3_resourc.Object.all():
         print(f"\tObject: {obj.key}")
 
 def create_s3():
@@ -41,5 +41,6 @@ def upload_file_s3():
 if __name__ == '__main__':
     
     list_s3()
+    list_obj()
     create_s3()
     upload_file_s3()
