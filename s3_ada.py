@@ -7,6 +7,12 @@ def list_s3():
     for bucket in s3_resource.buckets.all():
         print(f"\t{bucket.name}")
 
+def list_obj():
+    s3_resourc = boto3.resource('s3')
+    print("Listing my objects: ")
+    for obj in s3_resourc.objects.all():
+        print(f"\tObject: {obj.key}")
+
 def create_s3():
     s3_client = boto3.client('s3')
     date = str(datetime.now().date())
